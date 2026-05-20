@@ -1,0 +1,31 @@
+﻿@model BookCatalog.Models.Book
+@{
+    ViewData["Title"] = "Удалить";
+    Layout = "_Layout";
+}
+
+<h1 class="text-danger">Удалить книгу?</h1>
+
+<div class="alert alert-warning">
+    Вы действительно хотите удалить эту запись? Это действие необратимо.
+</div>
+
+<dl class="row">
+    <dt class="col-sm-3">Название</dt>
+    <dd class="col-sm-9">@Model.Title</dd>
+
+    <dt class="col-sm-3">Автор</dt>
+    <dd class="col-sm-9">@Model.Author</dd>
+
+    <dt class="col-sm-3">Жанр</dt>
+    <dd class="col-sm-9">@Model.Genre</dd>
+
+    <dt class="col-sm-3">Год</dt>
+    <dd class="col-sm-9">@Model.Year</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Да, удалить</button>
+    <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+</form>
